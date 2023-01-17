@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,22 +7,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div class="hero-section">
-      <h1>Easily Count Your Words</h1>
-      <button id="info-button">How to Use</button>
+
+<div class="word-count-tool">
+    <h1>Easily Count Your Words</h1>
+    <div class="input-area">
+        <textarea id="text-area"></textarea>
+        <button id="clear-btn" class="btn">Clear</button>
     </div>
-    <div class="main-container">
-      <textarea id="textarea"></textarea>
-      <p>Number of words: <span id="word-count">0</span></p>
+    <div class="output-area">
+        <div class="word-count">
+            <p>Word Count: <span id="word-count">0</span></p>
+        </div>
     </div>
-    <div class="info-container">
-      <div class="tooltip">
-        <h3>How to Use</h3>
-        <p>Type or paste your text in the text area. The word count will be displayed in real-time. The background color adjusts to the font color for better readability.</p>
-        <p>Note: This tool does not account for multiple spaces, new lines, and punctuation that may appear within the text.</p>
-     </div>
-     </div>
-     </body>
+    <div class="how-to-use">
+        <h2>How to use</h2>
+        <p>Enter the text in the text area above, the word count will be displayed in real-time.</p>
+        <p>You can also click on the "clear" button to clear the text area.</p>
+    </div>
+    <div class="footer">
+        <p>Developed by <a href="https://chat.openai.com/">ChatGPT: OpenAI</a></p>
+    </div>
+</div>
+  </body>
      <script src="script.js"></script>
 </html>
-

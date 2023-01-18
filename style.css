@@ -5,12 +5,11 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 .word-count-tool {
   width: 70%;
   margin: 0 auto;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-area {
@@ -37,6 +36,22 @@ textarea {
   font-size: 1.4em;
 }
 
+.character-count-without-spaces {
+  font-size: 1.4em;
+}
+
+.character-count {
+  font-size: 1.4em;
+}
+
+.top-keywords {
+  font-size: 1.4em;
+}
+
+.frequency-of-each-word {
+  font-size: 1.4em;
+}
+
 .how-to-use {
   margin: 20px 0;
   display: none;
@@ -56,27 +71,6 @@ textarea {
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 1.2em;
-  cursor: pointer;
-}
-
-/* Media Query for Small Devices */
-@media only screen and (max-width: 768px) {
-  /* Text Area */
-  textarea {
-      height: 150px;
-  }
-}
-
-.footer a {
-  color: #333;
-  text-decoration: none;
-  font-size: 1.2em;
-  margin-left: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-.footer a:hover {
-  color: #f12711;
 }
 
 
@@ -90,3 +84,38 @@ textarea {
   100% {
     background-position: 0% 50
   }
+
+  .top-keywords-block {
+width: 50%;
+margin: 0 auto;
+padding: 20px;
+background-color: #f2f2f2;
+border-radius: 10px;
+box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.top-keywords-block h3 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.top-keywords-block ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.top-keywords-block li {
+display: inline-block;
+margin-right: 10px;
+padding: 5px 10px;
+background-color: #333;
+color: #fff;
+border-radius: 10px;
+font-size: 1.2em;
+cursor: pointer;
+}
+
+.top-keywords-block li:hover {
+background-color: #f12711;
+}

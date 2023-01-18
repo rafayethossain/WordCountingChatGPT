@@ -1,121 +1,75 @@
-.body {
-  background: linear-gradient(to right, #82d4bc, #faef58);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  font-family: "Poppins", sans-serif;
+// function to clear the text area
+function clearText() {
+  document.querySelector("#text-area").value = "";
+  document.querySelector("#word-count").innerHTML = "0";
+  document.querySelector("#character-count").innerHTML = "0";
+  document.querySelector("#character-count-without-spaces").innerHTML = "0";
+  document.querySelector("#top-keywords").innerHTML = "";
 }
 
-.word-count-tool {
-  width: 70%;
-  margin: 0 auto;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
+// function to count the number of words in real-time as the user types in the text area
+document.querySelector("#text-area").addEventListener("input", function() {
+  var text = this.value;
+  var wordCount = text.split(" ").length;
+  document.querySelector("#word-count").innerHTML = wordCount;
+  countCharacters();
+  countCharactersWithoutSpaces();
+  countTopKeywords();
+});
+
+// function to count characters
+function countCharacters() {
+  var text = document.querySelector("#text-area").value;
+  var characterCount = text.length;
+  document.querySelector("#character-count").innerHTML = characterCount;
 }
 
-.input-area {
-  margin: 20px 0;
-}
-
-textarea {
-  width: 100%;
-  height: 200px;
-  padding: 15px;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  font-size: 1.2em;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.output-area {
-  margin: 20px 0;
-}
-
-.word-count {
-  font-size: 1.4em;
-}
-
-.character-count-without-spaces {
-  font-size: 1.4em;
-}
-
-.character-count {
-  font-size: 1.4em;
-}
-
-.top-keywords {
-  font-size: 1.4em;
-}
-
-.frequency-of-each-word {
-  font-size: 1.4em;
-}
-
-.how-to-use {
-  margin: 20px 0;
-  display: none;
-}
-
-.footer {
-  margin-top: 30px;
-}
-
-.footer a {
-  color: #333;
-}
-
-.btn {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 1.2em;
+// function to count characters without whitespace
+function countCharactersWithoutSpaces() {
+  var text = document.querySelector("#text-area").value;
+  var characterCountWithoutSpaces = text.replace(/\s/g, "").length;
+  document.querySelector("#character-count-without-spaces").innerHTML = characterCountWithoutSpaces;
 }
 
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50
+// event listener for the text area to call the counting functions
+document.querySelector("#text-area").addEventListener("input", function() {
+  countCharacters();
+  countCharactersWithoutSpaces();
+  countTopKeywords();
+});
+
+// event listener for the "clear" button
+document.querySelector("#clear-btn").addEventListener("click", clearText);
+
+
+// function to count the top keywords
+function countTopKeywords() {
+  var text = document.querySelector("#text-area").value;
+  var words = text.split(/\W+/);
+
+  // create an object to store the frequency of each word
+  var wordFrequency = {};
+  words.forEach(function(word) {
+    wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+  });
+
+  // sort the object by frequency
+  var sortedWords = Object.keys(wordFrequency).sort(function(a, b) {
+    return wordFrequency[b] - wordFrequency[a];
+  });
+
+  // display the top 5 keywords in a list
+  var topKeywordsList = document.querySelector("#top-keywords-list");
+  topKeywordsList.innerHTML = "";
+  for (var i = 0; i < 5; i++) {
+    var keyword = document.createElement("div");
+    keyword.innerHTML = sortedWords[i] + " (" + wordFrequency[sortedWords[i]] + ")";
+    topKeywordsList.appendChild(keyword);
   }
 
-  .top-keywords-block {
-width: 50%;
-margin: 0 auto;
-padding: 20px;
-background-color: #f2f2f2;
-border-radius: 10px;
-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  
+  
 }
 
-.top-keywords-block h3 {
-text-align: center;
-margin-bottom: 20px;
-}
 
-.top-keywords-block ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.top-keywords-block li {
-display: inline-block;
-margin-right: 10px;
-padding: 5px 10px;
-background-color: #333;
-color: #fff;
-border-radius: 10px;
-font-size: 1.2em;
-cursor: pointer;
-}
-
-.top-keywords-block li:hover {
-background-color: #f12711;
-}

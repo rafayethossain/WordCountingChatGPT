@@ -1,6 +1,9 @@
 # Word Count Tool
 This tool is a web application that allows you to easily count the number of words, characters, and characters without spaces in a piece of text. It also counts the top keywords and the frequency of each word in the text. It was built using the OpenAI's GPT-3 language model, ChatGPT.
 
+# Live Demo
+[Click Here
+](https://rafayethossain.github.io/word-counting-tool-ChatGPT/)
 # How to Use
 - Type or paste your text into the text area.
 - The word count, character count, and character count without spaces will be displayed in real-time as you type.
